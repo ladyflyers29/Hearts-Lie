@@ -31,9 +31,25 @@ public class PlayerState : MonoBehaviour
 
     void selectTargets(int amt)
     {
+        int indx;
+
         for (int i = 0; i < amt; i++)
         {
-            activeTargets.Add(targets[Random.Range(0, targets.Count - 1)]);
+            indx = Random.Range(0, targets.Count - 1);
+            activeTargets.Add(targets[indx]);
+            targets.RemoveAt(indx);
         }
+    }
+
+    void pickUp()
+    {
+        hearts++;
+    }
+
+    void nextNight()
+    {
+        night++;
+        activeTargets.Clear();
+        hearts = 0;
     }
 }
