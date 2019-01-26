@@ -52,7 +52,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -96,14 +96,14 @@ TextureImporter:
         y: 0
         width: 44
         height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 945ed3c57999f5443b48d15759033670
+      spriteID: cba3e599f0b413440b22e9dd9e3ff795
       vertices: []
       indices: 
       edges: []
@@ -116,14 +116,14 @@ TextureImporter:
         y: 0
         width: 44
         height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53933513ae6d75e4e8564975506eeebc
+      spriteID: c76def4754e8ece4ba78cedcdbd2d09f
       vertices: []
       indices: 
       edges: []
@@ -136,14 +136,14 @@ TextureImporter:
         y: 0
         width: 44
         height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81992bb08e172f44b8fe219a6b197c9b
+      spriteID: 80da2e1968ecd014193d87223e8b2e0a
       vertices: []
       indices: 
       edges: []
@@ -156,34 +156,14 @@ TextureImporter:
         y: 0
         width: 44
         height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76de4154fdbbd734095c048b62d6e6f6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: murderer_4
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 0
-        width: 12
-        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 038295f44b73a2e4fb11b964899ba95a
+      spriteID: 79a5efe7a64ad254a872e8aa85d34685
       vertices: []
       indices: 
       edges: []
