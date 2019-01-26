@@ -23,6 +23,25 @@ public class PlayerMovement: MonoBehaviour
 
     void FixedUpdate()
     {
+        if(horizontal == -1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        if(horizontal == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        if(vertical == -1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        if (vertical == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+
+
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
             body.velocity = new Vector2((horizontal * runSpeed) * moveLimiter, (vertical * runSpeed) * moveLimiter); // move at less speed 
         else // if not moving diagonally
