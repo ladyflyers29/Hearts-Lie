@@ -9,16 +9,18 @@ public class VictimAI : MonoBehaviour
     Transform currentPatrolPoint;
     int currentPatrolIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentPatrolIndex = 0;
         currentPatrolPoint = patrolPoints[currentPatrolIndex];
-
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        AImovement();
+    }
+
+    private void AImovement()
     {
         transform.Translate(Vector3.up * Time.deltaTime * speed);
         if (Vector3.Distance (transform.position, currentPatrolPoint.position) < .1f)
@@ -39,4 +41,6 @@ public class VictimAI : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 180f);
     }
+
+
 }
