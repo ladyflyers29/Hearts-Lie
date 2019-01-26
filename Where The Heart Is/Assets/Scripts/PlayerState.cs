@@ -17,10 +17,14 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Currently Active Targets")]
     public List<GameObject> activeTargets = new List<GameObject>();
 
+    private GameController gc;
+    public GameObject gameController;
+    public GameObject Home;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gc = gameController.GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class PlayerState : MonoBehaviour
         
     }
 
-    void selectTargets(int amt)
+    public void selectTargets(int amt)
     {
         int indx;
 
@@ -41,15 +45,21 @@ public class PlayerState : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject == Home)
+        {
+            if(gc.nightdone == true)
+            {
+                gc.nextNight();
+            }
+        }
+    }
+
     void pickUp()
     {
         hearts++;
     }
 
-    void nextNight()
-    {
-        night++;
-        activeTargets.Clear();
-        hearts = 0;
-    }
+
 }
