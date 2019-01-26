@@ -11,8 +11,60 @@ public class PlayerMovement: MonoBehaviour
     public float runSpeed = 20;
     public Transform prefab;
     private Animator animator;
+    float rotation;
 
+    float GetRotation(float x, float y)
+    {
+        float tan;
+        float angle = (x / -y);
 
+        if (x == 0)
+        {
+            if (y >= 0)
+            {
+                return 0f;
+            }
+            else
+            {
+                return 180f;
+            }
+        }
+        if (y == 0)
+        {
+            if (x >= 0)
+            {
+                return -90f;
+            }
+            else
+            {
+                return 90f;
+            }
+        }
+        if (angle < 0)
+        {
+            if (x < 0) //bottom left
+            {
+                //angle = angle * -1;
+                tan = (Mathf.Rad2Deg * Mathf.Atan(angle) - 180f);
+            }
+            else //top right
+            {
+                tan = (Mathf.Rad2Deg * Mathf.Atan(angle));
+            }
+        }
+        else
+        {
+            if (x < 0) //top left
+            {
+                tan = 360f + (Mathf.Rad2Deg * Mathf.Atan(angle));
+            }
+            else // bottom right
+            {
+                tan = (Mathf.Rad2Deg * Mathf.Atan(angle) - 180f);
+            }
+        }
+        return tan;
+    }
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -54,30 +106,19 @@ public class PlayerMovement: MonoBehaviour
 
     void FixedUpdate()
     {
-        if(horizontal == -1)
+        if (horizontal != 0 || vertical != 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
+            rotation = GetRotation(horizontal, vertical);
+            transform.rotation = Quaternion.Euler(0, 0, rotation);
         }
-        if(horizontal == 1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -90);
-        }
-        if(vertical == -1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
-        if (vertical == 1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        
-
-
-
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        {
             body.velocity = new Vector2((horizontal * runSpeed) * moveLimiter, (vertical * runSpeed) * moveLimiter); // move at less speed 
-        else // if not moving diagonally
+        }
+        else
+        {
             body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed); // move at normal speed
+        }
 
         //Set animations based on states
         if (animator.GetBool("HasHeart"))
