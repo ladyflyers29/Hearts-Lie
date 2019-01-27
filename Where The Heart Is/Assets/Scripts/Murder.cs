@@ -28,7 +28,16 @@ public class Murder : MonoBehaviour
     {
         
     }
-
+    IEnumerator WaitforEnd()
+        {
+        Debug.Log("Endiing Game");
+            yield return new WaitForSeconds(5);
+            Endgame();
+        }
+    void Endgame()
+    {
+        Application.Quit();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
        // Debug.Log("Please work");
@@ -43,8 +52,7 @@ public class Murder : MonoBehaviour
                 {
                     ps.hearts++;
                     other.gameObject.GetComponent<SetVictimDead>().dead = true;
-                    other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-                    light = other.gameObject.transform.Find("Field of Vision");
+                    other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;                    
 
                 }
 
@@ -57,6 +65,7 @@ public class Murder : MonoBehaviour
                 //What happens if you kill the wrong target
                 other.gameObject.GetComponent<SetVictimDead>().dead = true;
                 other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+
             }
         }
     }
