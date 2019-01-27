@@ -8,8 +8,12 @@ public class PlayerMovement: MonoBehaviour
     float horizontal;
     float vertical;
     float moveLimiter = 0.7f;
+    bool slash = false;
+    private float slashTime = 0.33f;
+    private float atSlash;
     public float runSpeed = 20;
-    public Transform prefab;
+    public GameObject Slash;
+    private PlayerState ps;
     private Animator animator;
     float rotation;
 
@@ -69,6 +73,7 @@ public class PlayerMovement: MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        ps = GetComponent<PlayerState>();
     }
 
     void Update()
@@ -78,26 +83,32 @@ public class PlayerMovement: MonoBehaviour
 
 
 
-
-        if(Input.GetKey(KeyCode.T))
-        {
-            if (animator.GetBool("HasHeart") == false)
-            {
-                animator.SetBool("HasHeart", true);
-            }
-            else
-            {
-                animator.SetBool("HasHeart", false);
-            }
-        }
-
-        if(Input.GetKey(KeyCode.Space))
-        {
-            Vector2 playerPos = new Vector2(transform.position.x, transform.position.y - .2f);
-            Instantiate(prefab, playerPos, Quaternion.identity);
-        }
-
         //Check to see if player has a heart or not
+        if (ps.hearts > 0)
+        {
+            Debug.Log(ps.hearts);
+            animator.SetBool("HasHeart", true);
+        }
+        else
+        {
+            animator.SetBool("HasHeart", false);
+        }
+        
+
+        if(Input.GetKeyDown(KeyCode.Space) && slash == false)
+        {
+            Slash.SetActive(true);
+            slash = true;
+            atSlash = Time.time + slashTime;
+        }
+        if(slash == true && Time.time > atSlash)
+        {
+            Slash.SetActive(false);
+            slash = false;
+        }
+
+
+       
 
 
 
@@ -128,12 +139,18 @@ public class PlayerMovement: MonoBehaviour
                 animator.SetBool("Walking_H", true);
                 animator.SetBool("Idle_H", false);
 
+                animator.SetBool("Walking", false);
+                animator.SetBool("Idle", false);
+
                 Debug.Log("Walking_H");
             }
             else
             {
                 animator.SetBool("Walking_H", false);
                 animator.SetBool("Idle_H", true);
+
+                animator.SetBool("Walking", false);
+                animator.SetBool("Idle", false);
 
                 Debug.Log("Idle");
             }
@@ -142,6 +159,8 @@ public class PlayerMovement: MonoBehaviour
         {
             if (horizontal != 0 || vertical != 0)
             {
+                animator.SetBool("Walking_H", false);
+                animator.SetBool("Idle_H", false);
                 animator.SetBool("Walking", true);
                 animator.SetBool("Idle", false);
 
@@ -149,6 +168,8 @@ public class PlayerMovement: MonoBehaviour
             }
             else
             {
+                animator.SetBool("Walking_H", false);
+                animator.SetBool("Idle_H", false);
                 animator.SetBool("Walking", false);
                 animator.SetBool("Idle", true);
 

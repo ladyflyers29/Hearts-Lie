@@ -25,14 +25,17 @@ public class Murder : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+       // Debug.Log("Please work");
         foreach (GameObject target in ps.activeTargets) //Iterate through all active targets
         {
+            
             if (other.gameObject == target) //Checks if the active target is the collision
             {
                 Debug.Log(other.gameObject.name + " was killed."); //Temporary Kill System
                 other.gameObject.SetActive(false);
+                ps.hearts++;
                 //other.gameObject.GetComponent<VictimState>.kill()
             }
         }
