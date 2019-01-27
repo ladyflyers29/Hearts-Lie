@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
             {
                 victim.GetComponent<AudioSource>().mute = false;
             }
-            victimCount = 1;
+            victimCount = ps.night;
             nightdone = false;
 
 
@@ -49,6 +49,10 @@ public class GameController : MonoBehaviour
     }
     public void nextNight()
     {
+        foreach (GameObject victim in ps.activeTargets)
+        {
+            Destroy(victim);
+        }
         ps.night++;
         ps.activeTargets.Clear();
         ps.hearts = 0;
