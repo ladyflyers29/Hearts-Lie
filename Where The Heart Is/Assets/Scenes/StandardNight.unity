@@ -54695,6 +54695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604185997}
   - component: {fileID: 604186002}
+  - component: {fileID: 604186003}
   - component: {fileID: 604186001}
   - component: {fileID: 604186000}
   - component: {fileID: 604185999}
@@ -54788,18 +54789,18 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 604186001}
     m_ColliderPaths:
-    - - X: 1440000000
-        Y: 1530000000
-      - X: -1200000000
-        Y: 1530000000
-      - X: -1200000000
-        Y: 270000000
-      - X: -960000000
+    - - X: -960000000
         Y: 270000000
       - X: -960000000
         Y: -210000000
       - X: 1440000000
         Y: -210000000
+      - X: 1440000000
+        Y: 1530000000
+      - X: -1200000000
+        Y: 1530000000
+      - X: -1200000000
+        Y: 270000000
   m_CompositePaths:
     m_Paths:
     - - {x: 144, y: 153}
@@ -99812,6 +99813,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!60 &604186003
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604185996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -40.02275, y: 50.977947}
+      - {x: -39.961166, y: 9.04409}
+      - {x: -31.997282, y: 8.976701}
+      - {x: -31.98494, y: -7.037799}
+      - {x: 47.968727, y: -6.9630947}
+      - {x: 47.96115, y: 50.990704}
 --- !u!1 &612708707
 GameObject:
   m_ObjectHideFlags: 0
@@ -108417,8 +108449,13 @@ PrefabInstance:
     - target: {fileID: 2795562222664323603, guid: 72af64f11b6524a41af4e6994567acd9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000047683716
+      value: -0.00000071525574
       objectReference: {fileID: 0}
+    - target: {fileID: 9096787227207549056, guid: 72af64f11b6524a41af4e6994567acd9,
+        type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 604186003}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72af64f11b6524a41af4e6994567acd9, type: 3}
 --- !u!1 &1071552219
