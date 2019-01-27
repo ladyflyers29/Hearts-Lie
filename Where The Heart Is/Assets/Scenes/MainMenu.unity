@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 122729680}
   - component: {fileID: 122729679}
   - component: {fileID: 122729678}
+  - component: {fileID: 122729681}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -285,6 +286,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122729676}
   m_CullTransparentMesh: 0
+--- !u!114 &122729681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122729676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eb229c8ef843c4c9629ffb1dbec5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad: 0
 --- !u!1 &339665137
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +541,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 936350176}
-        m_MethodName: LoadByIndex
+        m_MethodName: FadeToLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -588,6 +602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43be569e4091d4849aa539a47f7bb4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 122729678}
+  Fader: {fileID: 122729676}
 --- !u!1 &956011407
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +688,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 956011413}
-        m_MethodName: LoadByIndex
+        m_MethodName: FadeToLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -746,6 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43be569e4091d4849aa539a47f7bb4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 122729678}
+  Fader: {fileID: 122729676}
 --- !u!61 &956011414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -756,8 +774,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
