@@ -8,6 +8,8 @@ public class SetVictimDead : MonoBehaviour
     private AudioSource death;
     private AudioSource heartbeat;
     public bool dead = false;
+
+    bool died = false;
     //Rigidbody2D rb;
 
 
@@ -31,13 +33,7 @@ public class SetVictimDead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("hey i touched you");
-        if (collision.gameObject.tag == "knife" && dead == false)
+        if (dead == true && died == false)
         {
             Debug.Log("hey i got you");
             animator.SetBool("isDead", true);
@@ -46,11 +42,12 @@ public class SetVictimDead : MonoBehaviour
             death.Play();
             heartbeat.Stop();
             gameObject.transform.Find("Field of Vision").gameObject.SetActive(false);
-
-
-            //Dead variable is set at the murder.cs script
-
-
+            died = true;
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("hey i touched you");
     }
 }
