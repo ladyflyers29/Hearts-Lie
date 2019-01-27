@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Murder : MonoBehaviour
 {
     public GameObject player;
+    public Text statusText;
 
     PlayerState ps;
 
@@ -40,6 +42,7 @@ public class Murder : MonoBehaviour
             }
             else
             {
+                statusText.text = "That was not it.";
                 //What happens if you kill the wrong target
             }
         }
