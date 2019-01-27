@@ -7,6 +7,7 @@ public class Murder : MonoBehaviour
 {
     public GameObject player;
     public Text statusText;
+    private bool gotheart = false;
 
     PlayerState ps;
 
@@ -36,8 +37,15 @@ public class Murder : MonoBehaviour
             if (other.gameObject == target) //Checks if the active target is the collision
             {
                 Debug.Log(other.gameObject.name + " was killed."); //Temporary Kill System
-                other.gameObject.SetActive(false);
-                ps.hearts++;
+                //other.gameObject.SetActive(false);
+                if (other.gameObject.GetComponent<SetVictimDead>().dead == false)
+                {
+                    ps.hearts++;
+                    other.gameObject.GetComponent<SetVictimDead>().dead = true;
+                    other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+                }
+
+                
                 //other.gameObject.GetComponent<VictimState>.kill()
             }
             else

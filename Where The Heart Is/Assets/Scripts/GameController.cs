@@ -30,9 +30,10 @@ public class GameController : MonoBehaviour
     {
             statusText.text = "";
 
-            //activate audio in the victim
-            ps.selectTargets(1);
-            foreach (GameObject victim in ps.activeTargets)
+            
+            ps.selectTargets(ps.night);
+        //activate audio in the victim
+        foreach (GameObject victim in ps.activeTargets)
             {
                 victim.GetComponent<AudioSource>().mute = false;
             }
