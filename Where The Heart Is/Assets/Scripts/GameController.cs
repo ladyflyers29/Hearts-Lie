@@ -15,8 +15,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("AIYSFCKSVBA");
         ps = player.GetComponent<PlayerState>();
-
+        ps.night++;
         Night();
 
         
@@ -28,17 +29,21 @@ public class GameController : MonoBehaviour
     void Night()
     {
             statusText.text = "";
+
+            //activate audio in the victim
             ps.selectTargets(1);
             foreach (GameObject victim in ps.activeTargets)
             {
-            victim.GetComponent<AudioSource>().mute = false;
+                victim.GetComponent<AudioSource>().mute = false;
             }
             victimCount = 1;
             nightdone = false;
 
+
+            Debug.Log("Test");
             nightText.text = "Night " + ps.night.ToString();
 
-        //activate audio in the victim
+        
 
     }
     public void nextNight()
@@ -47,7 +52,14 @@ public class GameController : MonoBehaviour
         ps.activeTargets.Clear();
         ps.hearts = 0;
 
-        Night();
+        if (ps.night >= 4)
+        {
+            //put in end of game function
+        }
+        else
+        {
+            Night();
+        }
     }
     // Update is called once per frame
     void Update()

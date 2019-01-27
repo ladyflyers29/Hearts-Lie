@@ -38,6 +38,10 @@ public class Murder : MonoBehaviour
                 ps.hearts++;
                 //other.gameObject.GetComponent<VictimState>.kill()
             }
+            else
+            {
+                //What happens if you kill the wrong target
+            }
         }
     }
 
