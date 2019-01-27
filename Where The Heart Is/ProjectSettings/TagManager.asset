@@ -8,6 +8,7 @@ TagManager:
   - WayPoint
   - Victim
   - Cop
+  - knife
   layers:
   - Default
   - TransparentFX
