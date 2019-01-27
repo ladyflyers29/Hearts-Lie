@@ -45,6 +45,7 @@ public class SetVictimDead : MonoBehaviour
             waypoint.enabled = false;
             death.Play();
             heartbeat.Stop();
+            gameObject.transform.Find("Field of Vision").gameObject.SetActive(false);
 
 
             //Dead variable is set at the murder.cs script

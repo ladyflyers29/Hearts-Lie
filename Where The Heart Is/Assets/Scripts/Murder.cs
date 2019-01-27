@@ -8,6 +8,7 @@ public class Murder : MonoBehaviour
     public GameObject player;
     public Text statusText;
     private bool gotheart = false;
+    private Transform light;
 
     PlayerState ps;
 
@@ -43,6 +44,8 @@ public class Murder : MonoBehaviour
                     ps.hearts++;
                     other.gameObject.GetComponent<SetVictimDead>().dead = true;
                     other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+                    light = other.gameObject.transform.Find("Field of Vision");
+
                 }
 
                 
