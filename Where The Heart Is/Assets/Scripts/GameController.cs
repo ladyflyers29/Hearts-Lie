@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class GameController : MonoBehaviour
         if (ps.night >= 4)
         {
             //put in end of game function
+            SceneManager.LoadScene("Credits");
         }
         else
         {
