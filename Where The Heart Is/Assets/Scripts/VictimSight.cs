@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VictimSight : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class VictimSight : MonoBehaviour
 
     void EndGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
     IEnumerator WaitEndGame()
     {

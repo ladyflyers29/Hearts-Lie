@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Murder : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class Murder : MonoBehaviour
         }
     void Endgame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,10 +63,12 @@ public class Murder : MonoBehaviour
                 //other.gameObject.GetComponent<VictimState>.kill()
         if (other.gameObject.CompareTag("Victim"))
         {
-            statusText.text = "That was not it.";
+
+            statusText.text = "That was not it";
             //What happens if you kill the wrong target
             other.gameObject.GetComponent<SetVictimDead>().dead = true;
             other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            StartCoroutine(WaitforEnd());
 
         }
     }
