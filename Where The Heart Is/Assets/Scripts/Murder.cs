@@ -52,6 +52,8 @@ public class Murder : MonoBehaviour
             {
                 statusText.text = "That was not it.";
                 //What happens if you kill the wrong target
+                other.gameObject.GetComponent<SetVictimDead>().dead = true;
+                other.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             }
         }
     }

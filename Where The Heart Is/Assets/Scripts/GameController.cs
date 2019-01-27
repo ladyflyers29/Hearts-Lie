@@ -32,8 +32,8 @@ public class GameController : MonoBehaviour
 
             
             ps.selectTargets(ps.night);
-        //activate audio in the victim
-        foreach (GameObject victim in ps.activeTargets)
+            //activate audio in the victim
+            foreach (GameObject victim in ps.activeTargets)
             {
                 victim.GetComponent<AudioSource>().mute = false;
             }

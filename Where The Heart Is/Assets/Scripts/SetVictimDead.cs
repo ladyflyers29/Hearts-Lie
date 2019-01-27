@@ -6,6 +6,7 @@ public class SetVictimDead : MonoBehaviour
 {
     private Animator animator;
     private AudioSource death;
+    private AudioSource heartbeat;
     public bool dead = false;
     //Rigidbody2D rb;
 
@@ -21,6 +22,7 @@ public class SetVictimDead : MonoBehaviour
         AudioSource[] sounds = GetComponents<AudioSource>();
 
         Debug.Log("2");
+        heartbeat = sounds[0];
         death = sounds[1];
         Debug.Log("3");
 
@@ -35,16 +37,17 @@ public class SetVictimDead : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("hey i touched you");
-        if (collision.gameObject.tag == "knife")
+        if (collision.gameObject.tag == "knife" && dead == false)
         {
             Debug.Log("hey i got you");
             animator.SetBool("isDead", true);
             //rb.constraints = RigidbodyConstraints2D.FreezeAll;
             waypoint.enabled = false;
             death.Play();
+            heartbeat.Stop();
 
 
-            //dead = true;
+            //Dead variable is set at the murder.cs script
 
 
         }
