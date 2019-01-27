@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     }
     void Night()
     {
-            statusText.text = "I still here them";
+            statusText.text = "I still hear them";
 
             
             ps.selectTargets(ps.night);
